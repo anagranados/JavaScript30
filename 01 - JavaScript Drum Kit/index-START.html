@@ -85,6 +85,7 @@ window.addEventListener('keydown',function(e){
 
 function removeTransition(e){
 if(e.propertyName !== 'transform') return; //skip it if is not a transform
+console.log(this);
 this.classList.remove('playing');
 }
 const keys = document.querySelectorAll('.key');
