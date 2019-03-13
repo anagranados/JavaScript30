@@ -49,3 +49,10 @@ kbd {
   letter-spacing: .1rem;
   color: #ffc600;
 }
+
+.control-key{
+  position: absolute;
+  top: 70%;
+  width: 15%;
+  transform: translateY(-5%);
+}
