@@ -51,8 +51,25 @@ kbd {
 }
 
 .control-key{
+  display: flex;
   position: absolute;
-  top: 70%;
-  width: 15%;
-  transform: translateY(-5%);
+  top:70%;
+  width: 100%;
+  transform: translateY(-30%);
+   
+}
+
+.play-stop{
+  border: .4rem solid black;
+  border-radius: .5rem;
+  margin: 1rem;
+  font-size: 1rem;
+  padding: 1rem .5rem;
+  transition: all 0.07s ease;
+  width: 20rem;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  text-shadow: 0 0 .5rem black;
+  top: 80%;
 }

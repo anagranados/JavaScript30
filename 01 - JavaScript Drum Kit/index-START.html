@@ -54,13 +54,16 @@
       <kbd>L</kbd>
       <span class="sound">tink</span>
     </div>
-    <div data-key="17" class="key control-key">
-        <kbd>Press Ctrl key</kbd>
-        <span class="sound">tink</span>
-    </div>
-   
-
   </div>
+    <div class="control-key">
+         <div data-key="13" class="play-stop">
+            <kbd>Press Enter to play </kbd>
+         </div>
+         <div data-key="13" class="play-stop">
+          <kbd>Press Space to stop </kbd>
+       </div>
+    </div>
+  
 
 
 
@@ -74,7 +77,7 @@
   <audio data-key="75" id="id-sound" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
  
-  <span data-key="17">  </span>
+  
 
 
 
@@ -104,21 +107,36 @@ function playSound1(){
 //PAUSA SOUND
 function pausaSound(){
   clearInterval(interval);
+  clearInterval(timeoutID);
+  clearInterval(time1);
+  clearInterval(time2);
+  clearInterval(time3);
+}
+
+var timeoutID;
+var time1;
+var time2;
+var time3;
+var interval;
+function playOneSound(e){
+
 }
 document.addEventListener('keydown', function(e){
-
- const keyName = e.key;        
-        if (keyName === "Control") {
-         console.log(`The key pressed is ${keyName}`);
+ const keyName = e.keyCode;        
+        if (keyName === 13) {
          
-        var timeoutID = window.setInterval(playSound, 3500);
-        var time1 =window.setInterval(playSound,3000);
-        var time2 =window.setInterval(playSound,2000);
-        var time3 =window.setInterval(playSound,2500);
-        var interval = window.setInterval (playSound, 1000); 
+        timeoutID = window.setInterval(playSound, 3500);
+        time1 =window.setInterval(playSound,3000);
+        time2 =window.setInterval(playSound,2000);
+        time3 =window.setInterval(playSound,2500);
+        interval = window.setInterval (playSound, 1000); 
        
-        }
-  
+        } 
+        else
+          if(keyName === 32){
+         pausaSound();
+          }
+
   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
   if(!audio)return; //stop the function for running all toguether
@@ -127,9 +145,6 @@ document.addEventListener('keydown', function(e){
   key.classList.add('playing');
  
  });
-
-
-
 
 
 
